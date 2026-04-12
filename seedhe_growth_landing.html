@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seedhe Growth — Seedhi Baat. Seedha Result.</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&family=Syne:wght@700;800&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --void: #0C0C0C;
+      --emerald: #00A86B;
+      --gold: #C9A84C;
+      --white: #FAFAFA;
+      --ash: #1E1E1E;
+      --muted: #444444;
+      --gold-faint: rgba(201, 168, 76, 0.12);
+      --emerald-faint: rgba(0, 168, 107, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--void);
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* Custom cursor */
+    .cursor {
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+    }
+
+    .cursor-ring {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(201, 168, 76, 0.5);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: all 0.15s ease;
+    }
+
+    body:hover .cursor {
+      opacity: 1;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 0.5px solid rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      background: rgba(12, 12, 12, 0.85);
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+      line-height: 1;
+    }
+
+    .nav-seedhe {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-growth {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--emerald);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-rule {
+      height: 2px;
+      background: var(--gold);
+      border-radius: 1px;
+      width: 100%;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--void);
+      background: var(--gold);
+      padding: 10px 22px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--emerald);
+      transform: translateY(-1px);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-s {
+      position: absolute;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72vw;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--emerald);
+      opacity: 0.04;
+      line-height: 1;
+      top: -10%;
+      left: -5%;
+      pointer-events: none;
+      user-select: none;
+      animation: floatS 12s ease-in-out infinite;
+    }
+
+    .hero-bg-g {
+      position: absolute;
+      font-family: 'Syne', sans-serif;
+      font-size: 60vw;
+      font-weight: 800;
+      color: var(--gold);
+      opacity: 0.04;
+      line-height: 1;
+      top: 10%;
+      right: -10%;
+      pointer-events: none;
+      user-select: none;
+      animation: floatG 15s ease-in-out infinite;
+    }
+
+    @keyframes floatS {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(-2deg);
+      }
+
+      50% {
+        transform: translateY(-30px) rotate(0deg);
+      }
+    }
+
+    @keyframes floatG {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(1deg);
+      }
+
+      50% {
+        transform: translateY(20px) rotate(-1deg);
+      }
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 9vw, 9rem);
+      font-weight: 700;
+      font-style: italic;
+      line-height: 0.95;
+      letter-spacing: -2px;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.4s forwards;
+    }
+
+    .hero-title-green {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3.2rem, 7.5vw, 7.5rem);
+      font-weight: 800;
+      color: var(--emerald);
+      font-style: normal;
+      letter-spacing: -2px;
+      display: block;
+    }
+
+    .hero-gold-rule {
+      height: 4px;
+      background: var(--gold);
+      border-radius: 2px;
+      width: clamp(200px, 35vw, 500px);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.6s forwards;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.4vw, 1.25rem);
+      color: var(--white);
+      font-weight: 300;
+      max-width: 480px;
+      line-height: 1.75;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.8s forwards;
+    }
+
+    .hero-sub span {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1s forwards;
+    }
+
+    .btn-primary {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--void);
+      background: var(--emerald);
+      padding: 16px 36px;
+      border-radius: 2px;
+      text-decoration: none;
+      border: none;
+      cursor: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #00C47D;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--muted);
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .btn-secondary:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.4s forwards;
+    }
+
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: var(--muted);
+    }
+
+    .scroll-text {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MARQUEE */
+    .marquee-wrap {
+      border-top: 0.5px solid var(--ash);
+      border-bottom: 0.5px solid var(--ash);
+      padding: 1.25rem 0;
+      overflow: hidden;
+      background: var(--ash);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 18s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 2rem;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .marquee-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 8rem 3rem;
+      position: relative;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 4rem;
+      gap: 2rem;
+    }
+
+    .section-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 600;
+      font-style: italic;
+      line-height: 1.05;
+      letter-spacing: -1px;
+    }
+
+    .section-title em {
+      color: var(--emerald);
+      font-style: italic;
+    }
+
+    .section-desc {
+      max-width: 320px;
+      font-size: 14px;
+      color: var(--white);
+      line-height: 1.8;
+      font-weight: 300;
+      text-align: right;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--ash);
+      border: 1px solid var(--ash);
+    }
+
+    .service-card {
+      background: var(--void);
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s;
+      cursor: none;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      background: var(--ash);
+    }
+
+    .service-num {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 1.5rem;
+      opacity: 0.7;
+    }
+
+    .service-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.3px;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      color: var(--white);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* TAGLINE SECTION */
+    .tagline-section {
+      padding: 6rem 3rem;
+      border-top: 0.5px solid var(--ash);
+      border-bottom: 0.5px solid var(--ash);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      background: var(--ash);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tagline-big {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .tagline-big .gold {
+      color: var(--gold);
+    }
+
+    .tagline-big .green {
+      color: var(--emerald);
+    }
+
+    /* WHY US */
+    .why {
+      padding: 8rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .why-left .section-title {
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .why-body {
+      font-size: 15px;
+      color: var(--white);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+
+    .why-body strong {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      padding: 1.5rem;
+      border: 0.5px solid var(--ash);
+      border-left: 3px solid var(--gold);
+    }
+
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-num span {
+      color: var(--emerald);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .why-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .why-point {
+      padding: 1.75rem 0;
+      border-bottom: 0.5px solid var(--ash);
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .why-point:first-child {
+      border-top: 0.5px solid var(--ash);
+    }
+
+    .why-point-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 600;
+      flex-shrink: 0;
+      width: 36px;
+      line-height: 1.4;
+    }
+
+    .why-point-content h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.2px;
+    }
+
+    .why-point-content p {
+      font-size: 13px;
+      color: var(--white);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* PROCESS */
+    .process {
+      padding: 8rem 3rem;
+      background: var(--ash);
+      border-top: 0.5px solid #2A2A2A;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 4rem;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.3;
+    }
+
+    .process-step {
+      padding: 0 2rem;
+      position: relative;
+    }
+
+    .step-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--void);
+      border: 2px solid var(--gold);
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.3px;
+    }
+
+    .step-desc {
+      font-size: 13px;
+      color: var(--white);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      padding: 10rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-bg-text {
+      position: absolute;
+      font-family: 'Syne', sans-serif;
+      font-size: 30vw;
+      font-weight: 800;
+      color: var(--emerald);
+      opacity: 0.03;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .cta-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 7rem);
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-sub {
+      font-size: 15px;
+      color: var(--white);
+      font-weight: 300;
+      max-width: 400px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+    }
+
+    .cta-gold-rule {
+      height: 3px;
+      background: var(--gold);
+      width: 120px;
+      border-radius: 2px;
+      margin: 0 auto 3rem;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem;
+      border-top: 0.5px solid var(--ash);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav {
+        padding: 1.25rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 0 1.5rem;
+      }
+
+      .services {
+        padding: 5rem 1.5rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .section-desc {
+        text-align: left;
+      }
+
+      .why {
+        grid-template-columns: 1fr;
+        padding: 5rem 1.5rem;
+        gap: 3rem;
+      }
+
+      .process {
+        padding: 5rem 1.5rem;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+
+      .process-steps::before {
+        display: none;
+      }
+
+      .cta-section {
+        padding: 6rem 1.5rem;
+      }
+
+      .tagline-section {
+        padding: 4rem 1.5rem;
+      }
+
+      footer {
+        padding: 2rem 1.5rem;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-wordmark">
+        <span class="nav-seedhe">Seedhe</span>
+        <span class="nav-growth">Growth</span>
+      </div>
+      <div class="nav-rule"></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#process">Process</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Let's Talk</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-s">S</div>
+    <div class="hero-bg-g">G</div>
+
+    <div class="hero-eyebrow">India's Seedha Growth Agency</div>
+
+    <h1 class="hero-title">
+      Seedhe<br>
+      <span class="hero-title-green">Growth</span>
+    </h1>
+
+    <div class="hero-gold-rule"></div>
+
+    <p class="hero-sub">
+      No jugaad. No bakwaas. Just <span>strategy that works</span> and results that show — online, offline, everywhere
+      your brand needs to be.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start Growing</a>
+      <a href="#services" class="btn-secondary">See Our Work</a>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="marquee-item">
+        <div class="marquee-dot"></div>Online Campaigns
+      </div>
+      <div class="marquee-item">
+        <div class="marquee-dot"></div>Brand Strategy
+      </div>
+      <div class="marquee-item">
+        <div class="marquee-dot"></div>Influencer Marketing
+      </div>
+      <div class="marquee-item">
+        <div class="marquee-dot"></div>Business Agents
+      </div>
+      <div class="marquee-item">
+        <div class="marquee-dot"></div>Website Design
+      </div>
+      <div class="marquee-item">
+        <div class="marquee-dot"></div>Offline Campaigns
+      </div>
+      <div class="marquee-item">
+        <div class="marquee-dot"></div>Online Campaigns
+      </div>
+      <div class="marquee-item">
+        <div class="marquee-dot"></div>Brand Strategy
+      </div>
+      <div class="marquee-item">
+        <div class="marquee-dot"></div>Influencer Marketing
+      </div>
+      <div class="marquee-item">
+        <div class="marquee-dot"></div>Business Agents
+      </div>
+      <div class="marquee-item">
+        <div class="marquee-dot"></div>Website Design
+      </div>
+      <div class="marquee-item">
+        <div class="marquee-dot"></div>Offline Campaigns
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-eyebrow">What We Do</div>
+        <h2 class="section-title">Kaam jo <em>kaam aata hai</em></h2>
+      </div>
+      <p class="section-desc">Five services. One focus. Make your brand impossible to ignore.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <svg class="service-icon" viewBox="0 0 40 40" fill="none">
+          <path d="M5 35L15 20L22 28L30 12L35 20" stroke="#00A86B" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <circle cx="35" cy="20" r="3" fill="#C9A84C" />
+        </svg>
+        <div class="service-name">Online Campaigns</div>
+        <div class="service-desc">Performance-driven digital campaigns across Meta, Google, and beyond. Every rupee
+          spent with intent, every result tracked to the last click.</div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <svg class="service-icon" viewBox="0 0 40 40" fill="none">
+          <rect x="5" y="8" width="30" height="24" rx="2" stroke="#00A86B" stroke-width="1.5" />
+          <path d="M13 20H27M13 14H20M13 26H24" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+        <div class="service-name">Offline Campaigns</div>
+        <div class="service-desc">Hoardings, events, BTL activations. We take your brand from the screen to the street —
+          seedha into your audience's world.</div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <svg class="service-icon" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="16" r="8" stroke="#00A86B" stroke-width="1.5" />
+          <path d="M6 36C6 29.4 12.3 24 20 24C27.7 24 34 29.4 34 36" stroke="#C9A84C" stroke-width="1.5"
+            stroke-linecap="round" />
+        </svg>
+        <div class="service-name">Business Agents</div>
+        <div class="service-desc">On-ground reps and digital agents that represent your brand with the same energy you'd
+          bring yourself. Seedha, no middleman nonsense.</div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <svg class="service-icon" viewBox="0 0 40 40" fill="none">
+          <polygon points="20,5 35,35 5,35" stroke="#00A86B" stroke-width="1.5" stroke-linejoin="round" />
+          <line x1="20" y1="5" x2="20" y2="35" stroke="#C9A84C" stroke-width="1" stroke-dasharray="3,3" />
+        </svg>
+        <div class="service-name">Brand Strategy</div>
+        <div class="service-desc">We build brands that mean something — from positioning and identity to tone of voice
+          and visual language. Asli strategy, not jugaad.</div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num">05</div>
+        <svg class="service-icon" viewBox="0 0 40 40" fill="none">
+          <rect x="5" y="10" width="30" height="20" rx="2" stroke="#00A86B" stroke-width="1.5" />
+          <path d="M5 16H35" stroke="#C9A84C" stroke-width="1" />
+          <circle cx="10" cy="13" r="1.5" fill="#C9A84C" />
+          <circle cx="15" cy="13" r="1.5" fill="#444" />
+        </svg>
+        <div class="service-name">Websites</div>
+        <div class="service-desc">Fast, beautiful, conversion-focused websites that don't just look good — they work.
+          Built to rank, built to convert, built to last.</div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num">06</div>
+        <svg class="service-icon" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="14" r="6" stroke="#00A86B" stroke-width="1.5" />
+          <path d="M8 36C8 30 13.4 26 20 26C26.6 26 32 30 32 36" stroke="#00A86B" stroke-width="1.5"
+            stroke-linecap="round" />
+          <path d="M30 10L35 8L33 13" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <div class="service-name">Influencer Marketing</div>
+        <div class="service-desc">Creators who actually move the needle. We match your brand with the right voices —
+          nano to mega — and manage the whole thing.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAGLINE BREAK -->
+  <div class="tagline-section">
+    <div class="tagline-big reveal">
+      "<span class="gold">Seedhi Baat.</span><br><span class="green">Seedha Result.</span>"
+    </div>
+  </div>
+
+  <!-- WHY US -->
+  <section class="why" id="why">
+    <div class="why-left">
+      <div class="section-eyebrow reveal">Why Seedhe Growth</div>
+      <h2 class="section-title reveal">Kyun hum?<br><em>Kyunki results.</em></h2>
+      <p class="why-body reveal">
+        Most agencies will give you <strong>fancy decks and vague promises.</strong> We give you a clear plan, honest
+        timelines, and results you can actually see.
+        <br><br>
+        We're not here to impress you with jargon. We're here to <strong>grow your brand</strong> — seedha, no drama.
+      </p>
+      <div class="stats-grid reveal">
+        <div class="stat-card">
+          <div class="stat-num">50<span>+</span></div>
+          <div class="stat-label">Brands Grown</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3<span>x</span></div>
+          <div class="stat-label">Avg. ROI</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">100<span>%</span></div>
+          <div class="stat-label">Seedha Approach</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Bakwaas Promised</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-right">
+      <div class="why-point reveal">
+        <div class="why-point-num">01</div>
+        <div class="why-point-content">
+          <h4>No Lock-in Contracts</h4>
+          <p>Month-to-month. We earn your trust every month or you leave. Simple as that.</p>
+        </div>
+      </div>
+      <div class="why-point reveal">
+        <div class="why-point-num">02</div>
+        <div class="why-point-content">
+          <h4>Desi Market Experts</h4>
+          <p>We understand Indian consumers, regional markets, and cultural nuances that global agencies miss.</p>
+        </div>
+      </div>
+      <div class="why-point reveal">
+        <div class="why-point-num">03</div>
+        <div class="why-point-content">
+          <h4>Full-Service, One Team</h4>
+          <p>Strategy, creative, execution — all under one roof. No vendor juggling, no communication gaps.</p>
+        </div>
+      </div>
+      <div class="why-point reveal">
+        <div class="why-point-num">04</div>
+        <div class="why-point-content">
+          <h4>Transparent Reporting</h4>
+          <p>Weekly dashboards, monthly reviews. You always know exactly where your money went and what it did.</p>
+        </div>
+      </div>
+      <div class="why-point reveal">
+        <div class="why-point-num">05</div>
+        <div class="why-point-content">
+          <h4>Seedha Communication</h4>
+          <p>No ghosting, no corporate speak. Direct answers, honest timelines, zero runaround.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-eyebrow">How It Works</div>
+        <h2 class="section-title">Seedha <em>process</em></h2>
+      </div>
+      <p class="section-desc">Four steps. No hidden stages, no surprise milestones.</p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-dot"></div>
+        <div class="step-num">Step 01</div>
+        <div class="step-name">Baat Karo</div>
+        <div class="step-desc">Free 30-min strategy call. We listen, we ask hard questions, we tell you exactly what we
+          think — no fluff.</div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-dot"></div>
+        <div class="step-num">Step 02</div>
+        <div class="step-name">Plan Banao</div>
+        <div class="step-desc">A clear, honest roadmap tailored to your brand, budget and goals. No cookie-cutter decks.
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-dot"></div>
+        <div class="step-num">Step 03</div>
+        <div class="step-name">Kaam Shuru</div>
+        <div class="step-desc">We execute with speed and precision. Every deliverable on time, every rupee tracked.
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-dot"></div>
+        <div class="step-num">Step 04</div>
+        <div class="step-name">Results Dekho</div>
+        <div class="step-desc">Weekly updates, real numbers, honest reviews. Growth you can actually see.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-bg-text">SG</div>
+    <div class="cta-eyebrow reveal">Ready to Grow?</div>
+    <h2 class="cta-title reveal">Ab shuru<br><span style="color:var(--emerald);">karte hain.</span></h2>
+    <div class="cta-gold-rule reveal"></div>
+    <p class="cta-sub reveal">No commitments, no pressure. Just a straight conversation about your brand and where it
+      can go.</p>
+    <div class="hero-actions" style="justify-content:center;" class="reveal">
+      <a href="mailto:hello@seedhegrowth.in" class="btn-primary">Book a Free Call</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="nav-logo">
+      <div class="nav-wordmark">
+        <span class="nav-seedhe">Seedhe</span>
+        <span class="nav-growth">Growth</span>
+      </div>
+      <div class="nav-rule"></div>
+    </div>
+    <div class="footer-tagline">Seedhi Baat. Seedha Result.</div>
+    <div class="footer-copy">© 2026 Seedhe Growth. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top = my + 'px';
+    });
+
+    function animateRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.width = '16px';
+        cursor.style.height = '16px';
+        cursor.style.background = '#00A86B';
+        ring.style.width = '50px';
+        ring.style.height = '50px';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.width = '10px';
+        cursor.style.height = '10px';
+        cursor.style.background = '#C9A84C';
+        ring.style.width = '36px';
+        ring.style.height = '36px';
+      });
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>

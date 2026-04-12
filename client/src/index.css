@@ -1,17 +1,55 @@
 /* ============================================================
    SEEDHE GROWTH — Global Design System
-   Ported verbatim from seedhe_growth_landing.html
    ============================================================ */
 
+/* ── Dark theme (default) ───────────────────────────────── */
 :root {
-  --void: #0C0C0C;
-  --emerald: #00A86B;
-  --gold: #C9A84C;
-  --white: #FAFAFA;
-  --ash: #1E1E1E;
-  --muted: #444444;
-  --gold-faint: rgba(201, 168, 76, 0.12);
-  --emerald-faint: rgba(0, 168, 107, 0.08);
+  --void:           #0C0C0C;
+  --emerald:        #00A86B;
+  --gold:           #C9A84C;
+  --white:          #FAFAFA;
+  --ash:            #1E1E1E;
+  --muted:          #444444;
+  --gold-faint:     rgba(201, 168, 76, 0.12);
+  --emerald-faint:  rgba(0, 168, 107, 0.08);
+
+  /* semantic aliases used in light overrides */
+  --bg-page:        var(--void);
+  --bg-surface:     var(--ash);
+  --text-primary:   var(--white);
+  --text-muted:     var(--muted);
+  --border-subtle:  var(--ash);
+  --nav-bg:         rgba(12, 12, 12, 0.85);
+  --nav-border:     rgba(255, 255, 255, 0.04);
+  --hero-bg-opacity: 0.04;
+}
+
+/* ── Light theme overrides ──────────────────────────────── */
+[data-theme="light"] {
+  --void:           #F5F5F0;
+  --ash:            #E8E8E2;
+  --white:          #1A1A1A;
+  --muted:          #666666;
+  --gold-faint:     rgba(201, 168, 76, 0.15);
+  --emerald-faint:  rgba(0, 168, 107, 0.1);
+
+  --bg-page:        #F5F5F0;
+  --bg-surface:     #E8E8E2;
+  --text-primary:   #1A1A1A;
+  --text-muted:     #666666;
+  --border-subtle:  #D0D0C8;
+  --nav-bg:         rgba(245, 245, 240, 0.92);
+  --nav-border:     rgba(0, 0, 0, 0.06);
+  --hero-bg-opacity: 0.06;
+}
+
+/* ── Theme transition ───────────────────────────────────── */
+*, *::before, *::after {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 * {
@@ -68,9 +106,47 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 0.5px solid var(--nav-border);
   backdrop-filter: blur(12px);
-  background: rgba(12, 12, 12, 0.85);
+  background: var(--nav-bg);
+}
+
+/* ── Theme Toggle Button ─────────────────────────────────── */
+.theme-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: transparent;
+  cursor: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-left: 0.75rem;
+  flex-shrink: 0;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--emerald);
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 0 12px rgba(0, 168, 107, 0.3);
+}
+
+.theme-toggle img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .nav-logo {
@@ -437,7 +513,7 @@ nav {
   padding: 3rem 2.5rem;
   position: relative;
   overflow: hidden;
-  transition: background 0.4s;
+  transition: background 0.4s, color 0.35s;
   cursor: none;
 }
 
@@ -873,7 +949,7 @@ footer {
 .form-group textarea {
   width: 100%;
   background: var(--void);
-  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  border: 0.5px solid var(--border-subtle);
   border-radius: 2px;
   color: var(--white);
   font-family: 'Space Grotesk', sans-serif;
@@ -881,7 +957,7 @@ footer {
   font-weight: 300;
   padding: 12px 16px;
   outline: none;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background 0.35s, color 0.35s;
   cursor: none;
 }
 

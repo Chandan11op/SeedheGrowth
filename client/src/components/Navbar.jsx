@@ -1,4 +1,4 @@
-export default function Navbar({ onOpenModal }) {
+export default function Navbar({ onOpenModal, theme, onToggleTheme }) {
   return (
     <nav>
       <div className="nav-logo">
@@ -15,9 +15,21 @@ export default function Navbar({ onOpenModal }) {
         <li><a href="#process">Process</a></li>
       </ul>
 
-      <button className="nav-cta" onClick={onOpenModal} id="nav-cta-btn">
-        Let's Talk
-      </button>
+      <div className="nav-right">
+        <button className="nav-cta" onClick={onOpenModal} id="nav-cta-btn">
+          Let's Talk
+        </button>
+
+        <button
+          className="theme-toggle"
+          onClick={onToggleTheme}
+          id="theme-toggle-btn"
+          title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          aria-label="Toggle theme"
+        >
+          <img src="/toggle.png" alt="Toggle theme" />
+        </button>
+      </div>
     </nav>
   )
 }

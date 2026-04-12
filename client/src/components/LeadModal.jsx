@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Loader from './Loader'
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -86,6 +87,7 @@ export default function LeadModal({ onClose, onSuccess }) {
 
   return (
     <div className="modal-overlay" onClick={handleOverlayClick} role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      {loading && <Loader />}
       <div className="modal-box">
         <button
           className="modal-close"

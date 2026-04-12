@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import Loader from './components/Loader'
 
 import CustomCursor  from './components/CustomCursor'
 import Navbar        from './components/Navbar'
@@ -14,8 +15,29 @@ import LeadModal     from './components/LeadModal'
 import SuccessPopup  from './components/SuccessPopup'
 
 export default function App() {
+  const [pageLoading,   setPageLoading]   = useState(true)
   const [isModalOpen,   setIsModalOpen]   = useState(false)
   const [isSuccessOpen, setIsSuccessOpen] = useState(false)
+
+  // ── Theme state ─────────────────────────────────────────────
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('sg-theme') || 'dark'
+  })
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('sg-theme', theme)
+  }, [theme])
+
+  const toggleTheme = useCallback(() => {
+    setTheme(t => t === 'dark' ? 'light' : 'dark')
+  }, [])
+
+  /* ── Page load screen ────────────────────────────────── */
+  useEffect(() => {
+    const t = setTimeout(() => setPageLoading(false), 1500)
+    return () => clearTimeout(t)
+  }, [])
 
   /* ── Scroll-reveal observer ───────────────────────────── */
   const initReveal = useCallback(() => {
@@ -65,9 +87,10 @@ export default function App() {
 
   return (
     <>
+      {pageLoading && <Loader />}
       <CustomCursor />
 
-      <Navbar  onOpenModal={openModal} />
+      <Navbar  onOpenModal={openModal} theme={theme} onToggleTheme={toggleTheme} />
       <Hero    onOpenModal={openModal} />
       <Marquee />
       <Services />

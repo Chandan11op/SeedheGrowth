@@ -3,12 +3,12 @@ import Loader from './Loader'
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-const INITIAL_FORM  = { name: '', email: '', contact: '', query: '' }
+const INITIAL_FORM = { name: '', email: '', contact: '', query: '' }
 const INITIAL_ERRORS = { name: '', email: '', contact: '', query: '' }
 
 export default function LeadModal({ onClose, onSuccess }) {
-  const [form,    setForm]    = useState(INITIAL_FORM)
-  const [errors,  setErrors]  = useState(INITIAL_ERRORS)
+  const [form, setForm] = useState(INITIAL_FORM)
+  const [errors, setErrors] = useState(INITIAL_ERRORS)
   const [loading, setLoading] = useState(false)
   const [apiError, setApiError] = useState('')
 
@@ -54,14 +54,15 @@ export default function LeadModal({ onClose, onSuccess }) {
     setApiError('')
 
     try {
+      const baseUrl = import.meta.env.VITE_API_URL || '';
       const res = await fetch('/api/submit-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name:    form.name.trim(),
-          email:   form.email.trim(),
+          name: form.name.trim(),
+          email: form.email.trim(),
           contact: form.contact.trim(),
-          query:   form.query.trim(),
+          query: form.query.trim(),
         }),
       })
 

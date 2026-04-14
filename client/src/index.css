@@ -22,6 +22,7 @@
   --nav-bg:         rgba(12, 12, 12, 0.85);
   --nav-border:     rgba(255, 255, 255, 0.04);
   --hero-bg-opacity: 0.04;
+
 }
 
 /* ── Light theme overrides ──────────────────────────────── */
@@ -266,6 +267,17 @@ nav {
   pointer-events: none;
   user-select: none;
   animation: floatG 15s ease-in-out infinite;
+}
+
+/* ── Light mode bg-text overrides (color + opacity both) ─ */
+[data-theme="light"] .hero-bg-s {
+  color: #004D35;   /* very dark forest green — bold on cream */
+  opacity: 0.38;
+}
+
+[data-theme="light"] .hero-bg-g {
+  color: #6B4400;   /* very dark burnt amber — bold on cream */
+  opacity: 0.30;
 }
 
 @keyframes floatS {
@@ -702,7 +714,7 @@ nav {
 .process {
   padding: 8rem 3rem;
   background: var(--ash);
-  border-top: 0.5px solid #2A2A2A;
+  border-top: 0.5px solid var(--border-subtle);
 }
 
 .process-steps {
@@ -786,6 +798,11 @@ nav {
   pointer-events: none;
   white-space: nowrap;
   user-select: none;
+}
+
+[data-theme="light"] .cta-bg-text {
+  color: #004D35;   /* very dark forest green — bold on cream */
+  opacity: 0.30;
 }
 
 .cta-eyebrow {

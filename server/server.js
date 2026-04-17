@@ -86,10 +86,10 @@ app.post('/api/submit-lead', async (req, res) => {
   }
 })
 
-/* ── Health check ───────────────────────────────────────── */
+// /* ── Health check ───────────────────────────────────────── */
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }))
 
-/* ── Start ──────────────────────────────────────────────── */
+// /* ── Start ──────────────────────────────────────────────── */
 app.listen(PORT, () => {
   console.log(`🚀  Seedhe Growth server running on http://localhost:${PORT}`)
 })

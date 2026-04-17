@@ -55,7 +55,7 @@ export default function LeadModal({ onClose, onSuccess }) {
 
     try {
       const baseUrl = import.meta.env.VITE_API_URL || 'https://seedhegrowth.onrender.com';
-      const res = await fetch('/api/submit-lead', {
+      const res = await fetch(`${baseUrl}/api/submit-lead`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -81,7 +81,7 @@ export default function LeadModal({ onClose, onSuccess }) {
     }
   }
 
-  /* ── Overlay click-to-close ───────────────────────────── */
+  // /* ── Overlay click-to-close ───────────────────────────── */
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) onClose()
   }

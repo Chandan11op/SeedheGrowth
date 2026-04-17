@@ -15,7 +15,15 @@ console.log('GOOGLE_PRIVATE_KEY         :', process.env.GOOGLE_PRIVATE_KEY ? '�
 console.log('───────────────────────────────────────────────────\n')
 
 // Middleware
-app.use(cors({ origin: process.env.CORS_ORIGIN || 'https://seedhegrowth.vercel.app/' }))
+const allowedOrigins = process.env.CORS_ORIGIN
+  ? [process.env.CORS_ORIGIN]
+  : ['https://seedhegrowth.vercel.app', /https:\/\/seedhegrowth(-[a-z0-9]+)*\.vercel\.app/]
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+}))
 app.use(express.json())
 
 // ── Google Sheets auth 

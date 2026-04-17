@@ -65,13 +65,19 @@ export default function LeadModal({ onClose, onSuccess }) {
         }),
       })
 
-      const data = await res.json()
+      // Read as text first — prevents "Unexpected token" crash if server returns HTML
+      const raw = await res.text()
+      let data
+      try {
+        data = JSON.parse(raw)
+      } catch {
+        throw new Error(`Server error (${res.status}): ${raw.slice(0, 120)}`)
+      }
 
       if (!res.ok) {
         throw new Error(data.error || 'Something went wrong. Please try again.')
       }
 
-      // Success! Let parent swap to success popup
       onSuccess()
     } catch (err) {
       setApiError(err.message || 'Could not submit. Please try again.')

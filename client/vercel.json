@@ -1,10 +1,6 @@
 {
     "rewrites": [
         {
-            "source": "api/submit-lead",
-            "destination": "https://seedhegrowth.onrender.com/api/submit-lead"
-        },
-        {
             "source": "/(.*)",
             "destination": "/index.html"
         }

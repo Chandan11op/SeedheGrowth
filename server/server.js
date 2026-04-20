@@ -17,7 +17,7 @@ console.log('──────────────────────�
 // Middleware
 const allowedOrigins = process.env.CORS_ORIGIN
   ? [process.env.CORS_ORIGIN]
-  : ['https://seedhegrowth.vercel.app', /https:\/\/seedhegrowth(-[a-z0-9]+)*\.vercel\.app/]
+  : ['https://seedhegrowth.vercel.app', /https:\/\/seedhe-?growth(-[a-z0-9]+)*\.vercel\.app/]
 
 app.use(cors({
   origin: allowedOrigins,

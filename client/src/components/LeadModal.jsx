@@ -54,7 +54,8 @@ export default function LeadModal({ onClose, onSuccess }) {
     setApiError('')
 
     try {
-      const res = await fetch('https://seedhegrowth.onrender.com/api/submit-lead', {
+      const API_BASE_URL = import.meta.env.VITE_API_URL || ''
+      const res = await fetch(`${API_BASE_URL}/api/submit-lead`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

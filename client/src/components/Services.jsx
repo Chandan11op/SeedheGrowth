@@ -81,7 +81,7 @@ export default function Services() {
           </h2>
         </div>
         <p className="section-desc">
-          Five services. One focus. Make your brand impossible to ignore.
+          Six services. One focus. Make your brand impossible to ignore.
         </p>
       </div>
 

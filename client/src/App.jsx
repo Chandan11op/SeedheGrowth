@@ -9,6 +9,7 @@ import Services      from './components/Services'
 import TaglineBreak  from './components/TaglineBreak'
 import WhyUs         from './components/WhyUs'
 import Process       from './components/Process'
+import Founders      from './components/Founders'
 import CTA           from './components/CTA'
 import Footer        from './components/Footer'
 import LeadModal     from './components/LeadModal'
@@ -97,6 +98,7 @@ export default function App() {
       <TaglineBreak />
       <WhyUs />
       <Process />
+      <Founders />
       <CTA     onOpenModal={openModal} />
       <Footer />
 

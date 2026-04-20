@@ -1,4 +1,12 @@
+import { useState } from 'react'
+
 export default function Navbar({ onOpenModal, theme, onToggleTheme }) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
   return (
     <nav>
       <div className="nav-logo">
@@ -9,10 +17,11 @@ export default function Navbar({ onOpenModal, theme, onToggleTheme }) {
         <div className="nav-rule" />
       </div>
 
-      <ul className="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#why">Why Us</a></li>
-        <li><a href="#process">Process</a></li>
+      <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
+        <li><a href="#services" onClick={() => setIsMobileMenuOpen(false)}>Services</a></li>
+        <li><a href="#why" onClick={() => setIsMobileMenuOpen(false)}>Why Us</a></li>
+        <li><a href="#process" onClick={() => setIsMobileMenuOpen(false)}>Process</a></li>
+        <li><a href="#founders" onClick={() => setIsMobileMenuOpen(false)}>Team</a></li>
       </ul>
 
       <div className="nav-right">
@@ -27,7 +36,13 @@ export default function Navbar({ onOpenModal, theme, onToggleTheme }) {
           title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           aria-label="Toggle theme"
         >
-          <img src="/toggle.png" alt="Toggle theme" />
+          <div className="theme-toggle-slider">
+            <img src="/toggle.png" alt="" />
+          </div>
+        </button>
+
+        <button className="nav-mobile-toggle" onClick={toggleMobileMenu}>
+          {isMobileMenuOpen ? '×' : '☰'}
         </button>
       </div>
     </nav>

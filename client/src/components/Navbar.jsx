@@ -48,3 +48,4 @@ export default function Navbar({ onOpenModal, theme, onToggleTheme }) {
     </nav>
   )
 }
+// Seedhe Growth

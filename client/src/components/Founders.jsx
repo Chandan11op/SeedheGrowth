@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+// Seedhe Growth
 const foundersData = [
   {
     id: 'jeet',
@@ -84,16 +84,16 @@ export default function Founders() {
                 <img src={activeFounder.image} alt={activeFounder.name} />
               </div>
             </div>
-            
+
             <div className="founder-details-scroll">
               <button className="close-details" onClick={closeDetails} aria-label="Close details">
                 ×
               </button>
               <h3>{activeFounder.name}</h3>
               <span className="founder-full-role">{activeFounder.fullRole}</span>
-              
+
               <p className="founder-bio">{activeFounder.bio}</p>
-              
+
               <span className="founder-resp-title">Responsibilities</span>
               <p className="founder-bio">{activeFounder.resp}</p>
 
@@ -118,8 +118,8 @@ export default function Founders() {
           </>
         ) : (
           foundersData.map((founder) => (
-            <div 
-              key={founder.id} 
+            <div
+              key={founder.id}
               className="founder-card"
               onClick={() => handleCardClick(founder.id)}
             >

@@ -1,23 +1,24 @@
+// Seedhe Growth
 import { useState, useEffect, useCallback } from 'react'
 import Loader from './components/Loader'
 
-import CustomCursor  from './components/CustomCursor'
-import Navbar        from './components/Navbar'
-import Hero          from './components/Hero'
-import Marquee       from './components/Marquee'
-import Services      from './components/Services'
-import TaglineBreak  from './components/TaglineBreak'
-import WhyUs         from './components/WhyUs'
-import Process       from './components/Process'
-import Founders      from './components/Founders'
-import CTA           from './components/CTA'
-import Footer        from './components/Footer'
-import LeadModal     from './components/LeadModal'
-import SuccessPopup  from './components/SuccessPopup'
+import CustomCursor from './components/CustomCursor'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Marquee from './components/Marquee'
+import Services from './components/Services'
+import TaglineBreak from './components/TaglineBreak'
+import WhyUs from './components/WhyUs'
+import Process from './components/Process'
+import Founders from './components/Founders'
+import CTA from './components/CTA'
+import Footer from './components/Footer'
+import LeadModal from './components/LeadModal'
+import SuccessPopup from './components/SuccessPopup'
 
 export default function App() {
-  const [pageLoading,   setPageLoading]   = useState(true)
-  const [isModalOpen,   setIsModalOpen]   = useState(false)
+  const [pageLoading, setPageLoading] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [isSuccessOpen, setIsSuccessOpen] = useState(false)
 
   // ── Theme state ─────────────────────────────────────────────
@@ -72,7 +73,7 @@ export default function App() {
   }, [isModalOpen, isSuccessOpen])
 
   /* ── Modal handlers ───────────────────────────────────── */
-  const openModal  = () => setIsModalOpen(true)
+  const openModal = () => setIsModalOpen(true)
   const closeModal = () => setIsModalOpen(false)
 
   const handleSuccess = () => {
@@ -91,18 +92,18 @@ export default function App() {
       {pageLoading && <Loader />}
       <CustomCursor />
 
-      <Navbar  onOpenModal={openModal} theme={theme} onToggleTheme={toggleTheme} />
-      <Hero    onOpenModal={openModal} />
+      <Navbar onOpenModal={openModal} theme={theme} onToggleTheme={toggleTheme} />
+      <Hero onOpenModal={openModal} />
       <Marquee />
       <Services />
       <TaglineBreak />
       <WhyUs />
       <Process />
       <Founders />
-      <CTA     onOpenModal={openModal} />
+      <CTA onOpenModal={openModal} />
       <Footer />
 
-      {isModalOpen   && <LeadModal   onClose={closeModal}   onSuccess={handleSuccess} />}
+      {isModalOpen && <LeadModal onClose={closeModal} onSuccess={handleSuccess} />}
       {isSuccessOpen && <SuccessPopup onClose={closeSuccess} />}
     </>
   )

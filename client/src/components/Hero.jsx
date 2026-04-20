@@ -36,3 +36,4 @@ export default function Hero({ onOpenModal }) {
     </section>
   )
 }
+// Seedhe Growth

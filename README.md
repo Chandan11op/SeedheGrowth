@@ -2,7 +2,7 @@
 
 > **Seedhi Baat. Seedha Result.**
 
-🌐 **Live Website:** [Coming Soon](#) <!-- Replace # with your deployed URL -->
+🌐 **Live Website:** [https://seedhe-growth-1.vercel.app/](#) <!-- Replace # with your deployed URL -->
 
 ---
 
